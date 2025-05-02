@@ -84,4 +84,4 @@ Saya Syahraini Revita Puri dengan NIM 2301895 berjanji mengerjakan TP8 DPBO deng
 - Contoh : StudentController mengirim data mahasiswa ke Student.view.pho yang kemudian merender template `list.html`
 
 
-🎥 [Lihat demo video](dokumentasi/StudentManagement.mp4)
+🎥 [Lihat demo video](https://drive.google.com/file/d/1PsgWVd8-shpRRDfEGuJEbDkGXLsZi_9F/view?usp=sharing)
