@@ -1,0 +1,65 @@
+<div class="row mb-4">
+    <div class="col">
+        <h1><i class="fas fa-edit me-2"></i>Edit Enrollment</h1>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <form action="enrollment.php?action=update" method="post">
+            <input type="hidden" name="id" value="<?php echo $enrollment['id']; ?>">
+            
+            <div class="mb-3">
+                <label for="student_id" class="form-label">Student <span class="text-danger">*</span></label>
+                <select class="form-select" id="student_id" name="student_id" required>
+                    <option value="">-- Select Student --</option>
+                    <?php foreach ($students as $student): ?>
+                        <option value="<?php echo $student['id']; ?>" <?php echo ($student['id'] == $enrollment['student_id']) ? 'selected' : ''; ?>>
+                            <?php echo $student['name']; ?> (<?php echo $student['nim']; ?>)
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="course_id" class="form-label">Course <span class="text-danger">*</span></label>
+                <select class="form-select" id="course_id" name="course_id" required>
+                    <option value="">-- Select Course --</option>
+                    <?php foreach ($courses as $course): ?>
+                        <option value="<?php echo $course['id']; ?>" <?php echo ($course['id'] == $enrollment['course_id']) ? 'selected' : ''; ?>>
+                            <?php echo $course['course_name']; ?> (<?php echo $course['course_code']; ?>)
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="enrollment_date" class="form-label">Enrollment Date <span class="text-danger">*</span></label>
+                <input type="date" class="form-control" id="enrollment_date" name="enrollment_date" required value="<?php echo $enrollment['enrollment_date']; ?>">
+            </div>
+
+            <div class="mb-3">
+                <label for="grade" class="form-label">Grade</label>
+                <select class="form-select" id="grade" name="grade">
+                    <option value="">-- Not Graded Yet --</option>
+                    <option value="A" <?php echo ($enrollment['grade'] == 'A') ? 'selected' : ''; ?>>A</option>
+                    <option value="B" <?php echo ($enrollment['grade'] == 'B') ? 'selected' : ''; ?>>B</option>
+                    <option value="C" <?php echo ($enrollment['grade'] == 'C') ? 'selected' : ''; ?>>C</option>
+                    <option value="D" <?php echo ($enrollment['grade'] == 'D') ? 'selected' : ''; ?>>D</option>
+                    <option value="E" <?php echo ($enrollment['grade'] == 'E') ? 'selected' : ''; ?>>E</option>
+                    <option value="F" <?php echo ($enrollment['grade'] == 'F') ? 'selected' : ''; ?>>F</option>
+                </select>
+            </div>
+
+            <div class="d-flex justify-content-between">
+                <a href="enrollment.php" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left me-2"></i>Back to Enrollments
+                </a>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-save me-2"></i>Update Enrollment
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
